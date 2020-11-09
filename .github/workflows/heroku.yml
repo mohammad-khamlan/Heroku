@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - run:
+       docker build -t 11819287/catnip .
     - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
       with:
-        docker: docker build -t 11819287/catnip .
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  
         heroku_app_name: "microservice-heroku" 
         heroku_email: "mohammad.khamlan@stu.najah.edu"

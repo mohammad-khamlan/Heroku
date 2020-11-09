@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker_build
       run: |
-       docker build -t ${{secrets.DOCKER_USERNAME}}/microservice:latest
+       docker build -t ${{secrets.DOCKER_USERNAME}}
     - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  

@@ -16,3 +16,7 @@ jobs:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  
         heroku_app_name: "microservice-heroku" 
         heroku_email: "mohammad.khamlan@stu.najah.edu"
+        docker_build_args: |
+          NODE_ENV
+      env:
+        NODE_ENV: ""

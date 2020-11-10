@@ -3,6 +3,7 @@ import pickle
 import sklearn
 import numpy as np
 from argparse import ArgumentParser
+import os
 
 app = Flask(__name__)
 
@@ -74,6 +75,6 @@ if __name__ == '__main__':
     #Loaded model
     model = loaded_model() 
     #Run flask application
-    app.run(debug=True)
+    app.run(host = '0.0.0.0', port = port)
 
 

@@ -35,12 +35,12 @@ def predict():
         #get features from json request
         req_json = request.json
         
-        features.append(req_json['feature1'])
-        features.append(req_json['feature2'])
-        features.append(req_json['feature3'])
-        features.append(req_json['feature4'])
-        features.append(req_json['feature5'])
-        features.append(req_json['feature6'])
+        features.append(req_json['date'])
+        features.append(req_json['house_age'])
+        features.append(req_json['station_distance'])
+        features.append(req_json['stores'])
+        features.append(req_json['latitude'])
+        features.append(req_json['longitude'])
         
         #reshape the 1d array to 2d array to pass it to the model
         features = np.asarray(features, dtype=float).reshape(1,6)
@@ -52,12 +52,12 @@ def predict():
     else:
         #get features from get url
         
-        features = request.args.get("feature1")
-        features = request.args.get("feature2")
-        features = request.args.get("feature3")
-        features = request.args.get("feature4")
-        features = request.args.get("feature5")
-        features = request.args.get("feature6")
+        features = request.args.get("date")
+        features = request.args.get("house_age")
+        features = request.args.get("station_distance")
+        features = request.args.get("stores")
+        features = request.args.get("latitude")
+        features = request.args.get("longitude")
         
         #reshape the 1d array to 2d array to pass it to the model
         features = np.asarray(features, dtype=float).reshape(1,6)
@@ -76,6 +76,4 @@ if __name__ == '__main__':
     model = loaded_model() 
     #Run flask application
     port = int(os.environ.get('PORT', 5000))
-    app.run(host = '0.0.0.0', port = port)
-
-
+    app.run(debug=True, use_reloader=False,host='0.0.0.0', port =port)

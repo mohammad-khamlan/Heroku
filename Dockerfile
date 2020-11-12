@@ -1,6 +1,6 @@
 FROM python:3.8.1
 
-WORKDIR /Machine-Learning-Projects/Microservice
+WORKDIR /Heroku
 COPY . .
 
 RUN pip install -r requirements.txt
